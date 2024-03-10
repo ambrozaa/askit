@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Askit</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <meta charset="UTF-8">
+  <title>Askit</title>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-  <nav>
-    <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'Questions', questions_path %></li>
-    </ul>
-  </nav>
-  <main>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+<div class="header">
+  <div class="container">
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Хорошие вопросы", root_path %></h1>
+    </div>
+    <div class="header-nav">
+      <%= link_to 'Home', root_path, class: 'button button-light button-small' %>
+      <%= link_to 'Questions', questions_path, class: 'button button-light button-small' %>
+      <%= link_to 'New Questions', new_question_path, class: 'button button-light button-small' %>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="container">
     <%= yield %>
-  </main>
-  </body>
+  </div>
+</div>
+</body>
 </html>
